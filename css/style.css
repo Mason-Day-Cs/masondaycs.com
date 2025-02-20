@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: transparent;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -10,6 +10,16 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+/* Make sure the canvas is positioned correctly */
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: black; /* Base background color */
 }
 
 /* Sidebar Navigation - Fixed Left Vertical Header */
@@ -143,7 +153,7 @@ body {
 
 /* Footer */
 footer {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background:transparent;
     color: white;
     text-align: center;
     padding: 15px;
