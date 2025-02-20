@@ -1,57 +1,137 @@
 /* General Styles */
 body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
     color: #333;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-/* Header */
-header {
-    background-color: #222;
-    padding: 1rem 0;
-    text-align: center;
+/* Sidebar Navigation - Fixed Left Vertical Header */
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    background:transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 30px;
+    padding-left: 10px;
 }
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-nav ul li a {
-    color: white;
+
+.sidebar a {
+    margin: 20px 0;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px;
+    text-align: left;
+    transition: background 0.3s;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: linear-gradient(180deg, white, grey, white);
+    background-size: 100% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 6s infinite linear;
+}
+
+.sidebar a:hover {
+    background-color: #444;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 50% 100%; }
+    50% { background-position: 50% 0%; }
+    100% { background-position: 50% 100%; }
 }
 
 /* Hero Section */
 .hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Aligns content to the left */
+    justify-content: center; /* Keeps it vertically centered */
     color: white;
+    margin-left: -40px;
+    width: 25vw;
+    height: 100vh;
+    padding-left: 20px; /* Adds some spacing from the sidebar */
 }
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-.hero-content h2 {
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: -60px;
+    white-space: nowrap;
 }
+
+.hero-content h2 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: -70px;
+    white-space: nowrap;
+}
+
+.hero-content h3 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; /* Ensures a consistent gap */
+}
+
+.hero-content h3 .static-plus {
+    min-width: 30px; /* Adjust to move + into position */
+    text-align: right;
+}
+
+.hero-content h3 span {
+    display: inline-block;
+    width: 150px; /* Ensures all words have a fixed width */
+    text-align: left;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideInFadeOut 3s infinite;
+}
+@keyframes slideInFadeOut {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
 .btn {
     display: inline-block;
     margin: 15px 10px;
-    padding: 10px 20px;
+    padding: 12px 24px;
+    font-size: 1rem;
     background: #fff;
     color: #333;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
+    transition: background 0.3s;
 }
 .btn:hover {
     background: #ddd;
@@ -61,35 +141,13 @@ nav ul li a {
     color: white;
 }
 
-/* Featured Projects */
-.featured-projects {
-    padding: 50px 20px;
-    text-align: center;
-}
-.projects-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.project-item {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-.project-item img {
-    width: 100%;
-    border-radius: 10px;
-}
-
 /* Footer */
 footer {
-    background-color: #222;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
     color: white;
     text-align: center;
-    padding: 15px 0;
-    margin-top: 30px;
+    padding: 15px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
