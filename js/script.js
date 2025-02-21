@@ -1,13 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // List of words to cycle through
-    const words = ["Animator", "Artist", "Enthusiast", "Illustrator"]; // Add more as needed
-    let index = 0; // Tracks the current word index
-    const wordElement = document.getElementById("changing-word"); // Selects the h3 element
+    const words = ["Animator", "Artist", "Designer", "Illustrator"];
+    let index = 0;
+    const wordElement = document.getElementById("changing-word");
 
     function changeWord() {
-        index = (index + 1) % words.length; // Loops through the words array
-        wordElement.textContent = words[index]; // Updates the displayed word
+        // Fade out animation
+        gsap.to(wordElement, {
+            opacity: 0,
+            y: 30, // Moves down before disappearing
+            duration: 1.5,
+            onComplete: () => {
+                index = (index + 1) % words.length;
+                wordElement.textContent = words[index];
+
+                // Fade in animation with slide up effect
+                gsap.fromTo(wordElement, 
+                    { opacity: 0, y: 30 }, 
+                    { opacity: 1, y: 0, duration: 1.5 }
+                );
+            }
+        });
     }
 
-    setInterval(changeWord, 3000); // Changes every 2 seconds (adjust as needed)
+    // Ensure everything stays in sync by running this every 3 seconds
+    setInterval(changeWord, 3000);
 });
