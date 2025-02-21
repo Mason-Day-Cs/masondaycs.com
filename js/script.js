@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const words = ["Animator", "Artist", "Designer", "Illustrator"];
+    const words = ["Animator", "Artist", "Enthusiast", "Illustrator"]
     let index = 0;
     const wordElement = document.getElementById("changing-word");
 
