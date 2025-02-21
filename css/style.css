@@ -112,24 +112,8 @@ body {
     display: inline-block;
     width: 150px; /* Ensures all words have a fixed width */
     text-align: left;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideInFadeOut 3s infinite;
 }
-@keyframes slideInFadeOut {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(0);
-    }
-}
+
 
 .btn {
     display: inline-block;
@@ -153,6 +137,7 @@ body {
 
 /* Footer */
 footer {
+    background:transparent;
     color: white;
     text-align: center;
     padding: 15px;
@@ -160,3 +145,4 @@ footer {
     position: absolute;
     bottom: 0;
 }
+
