@@ -1,4 +1,4 @@
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("backgroundCanvas");
     const ctx = canvas.getContext("2d");
 

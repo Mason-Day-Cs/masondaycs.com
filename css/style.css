@@ -18,8 +18,9 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
-    background: black; /* Base background color */
+    z-index: -100;
+    background: black;
+
 }
 
 /* Sidebar Navigation - Fixed Left Vertical Header */
@@ -44,10 +45,10 @@ body {
     font-size: 1rem;
     padding: 10px;
     text-align: left;
-    transition: background 0.3s;
+    transition: all 0.3s ease-in-out;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    background: linear-gradient(180deg, white, grey, white);
+    background: linear-gradient(180deg, white, #FFB7C5, white);
     background-size: 100% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -55,7 +56,8 @@ body {
 }
 
 .sidebar a:hover {
-    background-color: #444;
+    transform: rotate(180deg) scale(1.2); /* Slightly enlarge */
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.6)); /* Soft glow */
 }
 
 @keyframes gradientAnimation {
@@ -113,27 +115,133 @@ body {
     width: 150px; /* Ensures all words have a fixed width */
     text-align: left;
 }
+.hero-blurb {
+    font-size: 0.75rem; /* Keeps text readable but helps with fitting */
+    font-weight: 300;
+    text-align: center;
+    margin-top: -35px;
+    max-width: 1500px; /* Forces the text to spread further */
+    opacity: 0.5;
+    line-height: 1.3; /* Reduces vertical spacing to avoid breaking into 3 lines */
+    white-space: normal; /* Allows natural line breaking */
+    letter-spacing: 0.5px; /* Helps text stretch a little more */
+    color: rgba(255, 255, 255, 0.85);
+    display: block; /* Prevents unwanted inline wrapping */
+    background: linear-gradient(180deg, white, #FFB7C5, white);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+/* Subtle hover effect to add interactivity */
+.hero-blurb:hover {
+    opacity: 1;
+    font-size: 0.75rem; /* Increases size on hover */
+    transform: scale(1.05); /* Slightly enlarges */
+}
 
 
-.btn {
-    display: inline-block;
-    margin: 15px 10px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    background: #fff;
-    color: #333;
-    text-decoration: none;
+/* Subtle Fade-in Animation */
+@keyframes fadeInBlurb {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+}
+.content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.content-container h1 {
+    font-size: 4.5rem; /* Matches home page */
     font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s;
 }
-.btn:hover {
-    background: #ddd;
+
+.content-container p {
+    font-size: 2rem; /* Large and clean */
+    opacity: 0.8;
 }
-.btn-secondary {
-    background: #333;
+/* Contact Form Styling */
+.contact {
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
     color: white;
 }
+
+.contact h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    justify-content: center;
+    border-radius: 5px;
+    background: #ff9a9e;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ff758c;
+}
+
+#responseMessage {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
 
 /* Footer */
 footer {
@@ -145,4 +253,3 @@ footer {
     position: absolute;
     bottom: 0;
 }
-

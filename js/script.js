@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const words = ["Animator", "Artist", "Enthusiast", "Illustrator"]
+    const words = ["Animator", "Artist", "Enthusiast", "Illustrator"];
     let index = 0;
     const wordElement = document.getElementById("changing-word");
 
@@ -23,5 +23,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Ensure everything stays in sync by running this every 3 seconds
-    setInterval(changeWord, 3000);
+    setInterval(changeWord, 4000);
 });
